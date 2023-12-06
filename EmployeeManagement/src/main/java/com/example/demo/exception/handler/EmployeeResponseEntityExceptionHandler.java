@@ -14,7 +14,6 @@ import com.example.demo.exception.ItemNotFoundException;
 import com.example.demo.model.ExceptionResponse;
 
 @ControllerAdvice
-@RestController
 public class EmployeeResponseEntityExceptionHandler {
 
 	@ExceptionHandler(Exception.class)
