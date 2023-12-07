@@ -22,7 +22,7 @@ public class EmployeeManagementController {
 	EmployeeService service;
 	
 	@RequestMapping(value = "/searchbyid/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<?> getEmployeeDetailsById(@PathVariable("id") String id) throws Exception {
+	public ResponseEntity<?> getEmployeeDetailsById(@PathVariable("id") long id) throws Exception {
 		Employee emp = service.findEmployeeById(id);
 		return new ResponseEntity<>(emp, HttpStatus.OK);
 	}
@@ -34,7 +34,7 @@ public class EmployeeManagementController {
 	}
 	
 	@RequestMapping(value = "/updateemp/{id}", method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<?> update(@RequestBody Employee employee, @PathVariable("id") String id) throws Exception{
+	public ResponseEntity<?> update(@RequestBody Employee employee, @PathVariable("id") long id) throws Exception{
 		Employee emp = service.updateEmployee(id, employee);
 		return new ResponseEntity<>(emp, HttpStatus.OK);
 	}

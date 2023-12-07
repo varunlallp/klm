@@ -34,8 +34,8 @@ public class EmployeeService {
 		return emp;
 	}
 	
-	public Employee findEmployeeById(String empId)throws ItemNotFoundException  {
-		EmployeeEntity empEntity = employeeRepository.findById(Long.parseLong(empId));
+	public Employee findEmployeeById(long empId)throws ItemNotFoundException  {
+		EmployeeEntity empEntity = employeeRepository.findById(empId);
 		if(Objects.isNull(empEntity)) {
 			throw new ItemNotFoundException(notFound);
 		}
@@ -43,8 +43,8 @@ public class EmployeeService {
 		return emp;
 	}
 	
-	public Employee updateEmployee(String empId, Employee employee) throws ItemNotFoundException {
-		EmployeeEntity empDb = employeeRepository.findById(Long.parseLong(empId));
+	public Employee updateEmployee(long empId, Employee employee) throws ItemNotFoundException {
+		EmployeeEntity empDb = employeeRepository.findById(empId);
 		if (Objects.isNull(empDb)) {
 			throw new ItemNotFoundException(notFound);
 		}
